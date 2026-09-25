@@ -8,6 +8,6 @@ if (!databaseUrl) {
   throw new Error('DATABASE_URL must be set to connect to PostgreSQL');
 }
 
-const client = postgres(databaseUrl);
+export const client = postgres(databaseUrl);
 
 export const db = drizzle(client);
