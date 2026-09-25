@@ -15,6 +15,7 @@ services:
   backend:
     build:
       context: ./backend
+    command: sh -c "npm run db:migrate:apply && npm run dev"
     ports:
       - "3000:3000"
     environment:
