@@ -4,11 +4,14 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
+    "predev": "pnpm  run db:migrate:apply",
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate"
+    "db:migrate": "drizzle-kit migrate",
+    "db:migrate:apply": "tsx src/db/migrate.ts",
+    "db:studio": "drizzle-kit studio"
   },
   "keywords": [],
   "author": "",
@@ -23,17 +26,20 @@
   "packageManager": "pnpm@11.24.0",
   "type": "module",
   "dependencies": {
+    "better-auth": "^1.7.5",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "drizzle-orm": "^0.44.7",
     "express": "^5.2.1",
+    "pg": "^8.23.0",
     "postgres": "^3.4.7"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^22.20.2",
-    "drizzle-kit": "^0.31.4",
+    "@types/pg": "^8.23.1",
+    "drizzle-kit": "^0.31.10",
     "tsx": "^4.23.13",
     "typescript": "^7.0.2"
   }
